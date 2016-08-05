@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>JspAssignment2</display-name>
+  
+   <filter>
+	<filter-name>SessionAuth</filter-name>
+	<filter-class>com.bitwise.assign2.SessionAuth</filter-class>
+</filter>
+<filter-mapping>
+	<filter-name>SessionAuth</filter-name>
+	<url-pattern>/*</url-pattern>
+</filter-mapping>
+ 
+  <servlet>
+    <servlet-name>Login</servlet-name>
+    <servlet-class>com.bitwise.assign2.Login</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Login</servlet-name>
+    <url-pattern>/Login</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>MainShoppingItems</servlet-name>
+    <servlet-class>com.bitwise.assign2.MainShoppingItems</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MainShoppingItems</servlet-name>
+    <url-pattern>/MainShoppingItems</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>Logout</servlet-name>
+    <servlet-class>com.bitwise.assign2.Logout</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Logout</servlet-name>
+    <url-pattern>/Logout</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+  
+ 
+</web-app>
