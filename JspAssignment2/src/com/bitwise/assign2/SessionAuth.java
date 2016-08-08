@@ -29,7 +29,7 @@ public class SessionAuth implements Filter {
     public SessionAuth() {
         // TODO Auto-generated constructor stub
     }
-    private ArrayList<String> urlList;
+  
 
 	/**
 	 * @see Filter#destroy()
@@ -55,12 +55,18 @@ public class SessionAuth implements Filter {
 		Cookie[] cookies = ((HttpServletRequest) request).getCookies();
 		if(cookies !=null){
 		for(Cookie cookie : cookies){
-			if(cookie.getName().equals("user")) userName = cookie.getValue();
-			if(cookie.getName().equals("JSESSIONID")) sessionID = cookie.getValue();
+			if(cookie.getName().equals("user")) 
+				userName = cookie.getValue();
+			if(cookie.getName().equals("JSESSIONID")) 
+				sessionID = cookie.getValue();
 			
 		}
 		}
-		if( req.getRequestURI().equals("/JspAssignment2/Login") )
+		if(req.getRequestURI().equals("/JspAssignment2/index.jsp"))
+		{
+			chain.doFilter(request, response);
+    	}
+		else if(req.getRequestURI().equals("/JspAssignment2/Login"))
 		{
 			chain.doFilter(request, response);
     	}
@@ -68,7 +74,7 @@ public class SessionAuth implements Filter {
 		else if (req.getSession(false) == null)
     	{
     		out.println("<br><br><h3><font color= red>Login First !!!</font> </h3> " );
-        	request.getRequestDispatcher("index.html").include(request, response);
+        	request.getRequestDispatcher("index.jsp").include(request, response);
     	}
 		else
 		{

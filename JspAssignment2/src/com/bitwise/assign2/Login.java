@@ -38,9 +38,7 @@ public class Login extends HttpServlet {
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		 UserData ud = new UserData();
-		 
-	
-		 String username=request.getParameter("name");  
+	      String username=request.getParameter("name");  
 		 String pass=request.getParameter("password");  
 				
 			Cookie userName = new Cookie("user",request.getParameter("name"));
@@ -53,18 +51,19 @@ public class Login extends HttpServlet {
 	    	 	{
 					 HttpSession session =   request.getSession(true);
 					 String sid=session.getId();
-							 
 					 session.setAttribute("name",request.getParameter("name"));    
 					 session.setAttribute("sid",sid);   
 						session.setMaxInactiveInterval(2*60);
 	    	 		
-						if (session.isNew()) {
+						if (session!=null) 
+						{
 							out.println("<br><h1> SmallBasket Login </h1>");
 							out.print("<br> <font color= red> You are successfully logged in!</font>");  
 					        out.print("<br><br>Welcome, "+request.getParameter("name")); 
 					       
 					        request.getRequestDispatcher("OnlineShopingPage.jsp").include(request, response);
-						} else {
+						} else 
+						{
 							out.println("<br><h1> Welcome Back</h1> " + session.getAttribute("name"));
 						}
 				}
@@ -72,7 +71,7 @@ public class Login extends HttpServlet {
 		     	{  
 		     			
 			    		out.println("<br><font color= red>Invalid Username or Password !!!</font><br>");
-					    request.getRequestDispatcher("index.html").include(request, response);
+					    request.getRequestDispatcher("index.jsp").include(request, response);
 		    		
 			    }
 			 }
@@ -80,7 +79,7 @@ public class Login extends HttpServlet {
 	     	{  
 	    	 		
 		    		out.println("<br><font color= red>Invalid Username or Password !!!</font><br>");
-				    request.getRequestDispatcher("index.html").include(request, response);
+				    request.getRequestDispatcher("index.jsp").include(request, response);
 	    		
 		    } 
 			 

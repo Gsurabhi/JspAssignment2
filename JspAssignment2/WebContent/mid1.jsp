@@ -8,14 +8,12 @@
 </head>
 <body>
 <ex:display /> 
-<c:forEach var="type" items="${map}">
+<c:forEach var="type" items="${map1}">
     ${type.key}
     ${type.value}
 </c:forEach>
 <form action="MainShoppingItems" method="post" >
-<h3> Enter the item no that you want to delete</h3>
-<input type="text" name="delete">
-<input type="submit" name="Delete" value="Delete">
+
 <input type="submit" name="display" value="View Cart Items">
 </form>
 </body>

@@ -27,7 +27,7 @@
   <servlet-mapping>
     <servlet-name>MainShoppingItems</servlet-name>
     <url-pattern>/MainShoppingItems</url-pattern>
-  </servlet-mapping>
+  </servlet-mapping>  
   
   <servlet>
     <servlet-name>Logout</servlet-name>

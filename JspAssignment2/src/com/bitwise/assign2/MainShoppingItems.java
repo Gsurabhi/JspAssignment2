@@ -54,7 +54,7 @@ public class MainShoppingItems extends HttpServlet {
 		
 			else if((request.getParameter("display")!=null))
 			{	
-					request.getRequestDispatcher("mid.jsp").include(request, response);				
+					request.getRequestDispatcher("mid1.jsp").include(request, response);				
 			}
 			
 		}
